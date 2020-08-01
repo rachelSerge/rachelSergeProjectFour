@@ -1,5 +1,5 @@
 const recipeApp = {};
-recipeApp.meals = [];
+
 // make API call 
 
 recipeApp.getRecipe = () => {
@@ -19,7 +19,7 @@ recipeApp.getRecipe = () => {
             }
         }).then((res) => {
             for (let i = 0; i < 3; i++) {
-                console.log("this is length of needed array", res.meals.length);
+                // get three random dishes and limiting output on page set to only 3
                 const random = [Math.floor(Math.random() * res.meals.length)];
 
                 const title = res.meals[random].strMeal;
@@ -27,31 +27,34 @@ recipeApp.getRecipe = () => {
                 const recipeId = res.meals[random].idMeal;
 
 
-                // second call to get recipe by id
-                $.ajax({
-                    url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
-                    method: 'GET',
-                    datatype: 'json',
-                    data: {
-                        per_page: '3',
-                    }
-                }).then((res) => {
-                    console.log(res, "second call warks")
-                    const recipe = res.meals[0].strInstructions;
-                    const ingredient = res.meals[0].strIngredient1
-                    console.log(ingredient)
-                    console.log("here is an output of", recipe);
+                // second call to get recipe and finding details by id
 
-                    $('body').append(`
+                $.ajax({
+                        url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
+                        method: 'GET',
+                        datatype: 'json',
+                        data: {
+                            per_page: '3',
+                        }
+                    })
+                    .then((res) => {
+                        // renedering title, id, recipe and image of selected dishes
+                        console.log(res, "second call warks")
+                        const recipe = res.meals[0].strInstructions;
+                        const ingredient = res.meals[0].strIngredient1
+                        console.log(ingredient)
+                        console.log("here is an output of", recipe);
+
+                        $('body').append(`
                         <h2>${title}</h2>
                         ${recipeId}
                         <h3>${ingredient}</h3>
                         ${recipe}
                         
                         <img src="${dishImage}" width="250px">
-
                         `)
-                })
+                    })
+
             }
         });
     })
