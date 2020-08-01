@@ -59,14 +59,14 @@ recipeApp.getRecipe = () => {
                 per_page: "3",
               },
             }).then((res) => {
-              console.log(res);
               // create a new array to hold all ingredients
               res.meals.forEach(function () {
                 res.meals[0].ingredientsList = [];
-
                 for (num = 1; num <= 20; num++) {
                   if (res.meals[0][`strIngredient${num}`]) {
-                   res.meals[0].ingredientsList.push(res.meals[0][`strIngredient${num}`]);
+                    res.meals[0].ingredientsList.push(
+                      res.meals[0][`strIngredient${num}`]
+                    );
                   }
                 }
               });
@@ -77,9 +77,9 @@ recipeApp.getRecipe = () => {
               const dishImage = res.meals[0].strMealThumb;
               // const recipeId = res.meals[0].idMeal;
               const ingredients = res.meals[0].ingredientsList;
-              console.log(ingredients);
+
               // display recipes result to the page.
-              $("#content").append(`
+              $(".content").append(`
                         <h2>${title}</h2>
                         <p>Ingredients: ${ingredients}</p>
                         <h3>${recipe}</h3>
