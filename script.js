@@ -1,54 +1,84 @@
-const recipeApp = {};
-let selectedRecipe = [];
-// make API call
+const recipeApp = {}
+recipeApp.meals = []
+
+// reset button: empty user inputs and  warning message
 
 recipeApp.getRecipe = () => {
-    $("button").click(function() {
-        recipeApp.ingredient = $("input").val().toLowerCase();
-        recipeApp.url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipeApp.ingredient}`;
+ $('#reset').click(function () {
+  recipeApp.localRecipes = []
+  $('#content').html('')
+  $('#warning').html('')
+  $('input').val('')
+ })
+ // eventListener: once the user clicks the 'submit' button,  if we get more than three results from API, it will generate first three recipes. if less than three, it will generate all the available recipes. if the result is null, throw an erro message
 
+ // this method is better than getting three random recipes from API, we can manipulate the array locally, which is more efficient
 
-        $.ajax({
-            url: recipeApp.url,
-            method: "GET",
-            datatype: "json",
-            data: {
-                per_page: "3",
-            },
-        }).then((res) => {
-            // console.log(res);
-            for (let i = 0; i < 3; i++) {
-                // console.log("this is length of needed array", res.meals.length);
-                const random = [Math.floor(Math.random() * res.meals.length)];
+ $('#submit').click(function () {
+  // note: we have to change all the inputs to lowercase in case of error(if user inputs are uppercase)
+  recipeApp.ingredient = $('input').val()
+  console.log(recipeApp.ingredient)
+  // error catch: if user inputs nothing, throw an error messgae inside of the warning area
+  if (recipeApp.ingredient == '') {
+   $('#warning').html('input is empty')
+  } else {
+   // make API call
+   recipeApp.url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipeApp.ingredient}`
 
-                const title = res.meals[random].strMeal.toLowerCase();
-                const dishImage = res.meals[random].strMealThumb;
-                const recipeId = res.meals[random].idMeal;
-                recipeApp.getItems(recipeId, title);
-            }
-        });
-        // second call to get recipe by id
-        recipeApp.getItems = function(recipeId, title) {
-            $.ajax({
-                url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
-                method: "GET",
-                datatype: "json",
-                data: {
-                    per_page: "3",
-                },
-            }).then((result) => {
-                console.log(result);
-                // push all the meal.strMeals to a new array'selectedRecipe'
-                let name = result.meals[0].strMeal;
-                selectedRecipe.push(name);
-                $("section").html("");
-                $("#one").append(`${selectedRecipe[0]}`);
-                $("#two").append(`${selectedRecipe[1]}`);
-                $("#three").append(`${selectedRecipe[2]}`);
-            });
-        };
-    });
-};
-$(function() {
-    recipeApp.getRecipe();
-});
+   $.ajax({
+    url: recipeApp.url,
+    method: 'GET',
+    datatype: 'json',
+    data: {
+     per_page: '3'
+    }
+   }).then(res => {
+    // check api result & error handling
+    if (res.meals == null) {
+     $('#warning').html('404 error')
+    } 
+    // print results if the input is not empty
+    else {
+     recipeApp.localRecipes = []
+     if (res.meals.length >= 3) {
+      recipeApp.localRecipes = res.meals.slice(0, 3)
+     } else {
+     
+      recipeApp.localRecipes = res.meals
+     }
+     console.log(recipeApp.localRecipes)
+     // done
+     // get recipes for each meal id
+     for (let i = 0; i < recipeApp.localRecipes.length; i++) {
+      recipeId = recipeApp.localRecipes[i].idMeal
+      $.ajax({
+       url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
+       method: 'GET',
+       datatype: 'json',
+       data: {
+        per_page: '3'
+       }
+      }).then(res => {
+       console.log(res)
+       const recipe = res.meals[0].strInstructions
+       const title = res.meals[0].strMeal
+       const dishImage = res.meals[0].strMealThumb
+       const recipeId = res.meals[0].idMeal
+       // display recipes result to the page. 
+       $('#content').append(`
+                        <h2>${title}</h2>
+                        ${recipeId}
+                        <h3>${recipe}</h3>
+                        <img src="${dishImage}" width="250px">
+                        `)
+      })
+     }
+    }
+   })
+  }
+ })
+}
+
+$(function () {
+ recipeApp.getRecipe()
+})
