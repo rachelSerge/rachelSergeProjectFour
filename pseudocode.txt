@@ -1,0 +1,44 @@
+1. // Create app namespace to hold all methods
+const recipeApp = {};
+
+
+
+2. app.collectInfo = function() {};
+// Collect user input 
+// place input forms with placeholder text (hint for users what search query needed)
+// Buttons on page: 1) submit 2) recipe suggestions
+
+
+3.// Make AJAX request with user inputted data
+app.getInfo = function() {}; Make API get request 
+
+FIRST CALL from https://www.themealdb.com/api/json/v1/1/filter.php?i=
+
+
+GET the id for three meels,
+
+than make 3 calls
+SECOND CALL https://www.themealdb.com/api/json/v1/1/lookup.php?i=
+
+4. 
+// Display data on the page
+app.displayInfo = function() {};
+
+// display generated recepies with imag eon the page - 
+append html element added dynamically to listed recepies. 
+
+names
+instructions
+main ingridients
+image
+
+// 3 recepies in one line rendered
+
+5.
+// Start app
+app.init = function() {};
+
+
+$(function() {
+	recipeApp.init();
+});
