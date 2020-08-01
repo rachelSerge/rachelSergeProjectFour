@@ -62,7 +62,7 @@ recipeApp.getRecipe = () => {
                             // create a new array to hold all ingredients
                             res.meals.forEach(function() {
                                 res.meals[0].ingredientsList = [];
-                                res.meals[0].measureList = [];
+
                                 for (num = 1; num <= 20; num++) {
                                     if (res.meals[0][`strIngredient${num}`] && res.meals[0][`strMeasure${num}`]) {
                                         res.meals[0].ingredientsList.push(res.meals[0][`strIngredient${num}`]);
@@ -76,18 +76,16 @@ recipeApp.getRecipe = () => {
                             console.log(res.meals[0].strIngredient1);
                             console.log(res.meals[0].strMeasure1);
 
-
                             const recipe = res.meals[0].strInstructions;
                             const title = res.meals[0].strMeal;
                             const dishImage = res.meals[0].strMealThumb;
                             // const recipeId = res.meals[0].idMeal;
                             const ingredients = res.meals[0].ingredientsList;
-                            const measure = res.meals[0].measureList;
 
                             // display recipes result to the page.
                             $(".content").append(`
                         <h2>${title}</h2>
-                        <p>Ingredients: ${ingredients}: ${measure}</p>
+                        <p>Ingredients: ${ingredients}</p>
                         <h3>${recipe}</h3>
                         <img src="${dishImage}" width="250px">
                         `);
