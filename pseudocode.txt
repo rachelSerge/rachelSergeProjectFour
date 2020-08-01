@@ -1,8 +1,6 @@
 1. // Create app namespace to hold all methods
 const recipeApp = {};
 
-
-
 2. app.collectInfo = function() {};
 // Collect user input 
 // place input forms with placeholder text (hint for users what search query needed)
