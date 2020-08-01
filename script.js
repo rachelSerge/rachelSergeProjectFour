@@ -65,7 +65,7 @@ recipeApp.getRecipe = () => {
                             const dishImage = res.meals[0].strMealThumb
                             const recipeId = res.meals[0].idMeal
                                 // display recipes result to the page. 
-                            $('#content').append(`
+                            $('.content').append(`
                         <h2>${title}</h2>
                         ${recipeId}
                         <h3>${recipe}</h3>
