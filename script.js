@@ -1,5 +1,5 @@
 const recipeApp = {};
-recipeApp.meals = [];
+
 
 // reset button: empty user inputs and  warning message
 
@@ -83,11 +83,13 @@ recipeApp.getRecipe = () => {
                             const ingredients = res.meals[0].ingredientsList;
 
                             // display recipes result to the page.
-                            $(".content").append(`
+                            $("#content").append(`
                         <h2>${title}</h2>
-                        <p>Ingredients: ${ingredients}</p>
-                        <h3>${recipe}</h3>
-                        <img src="${dishImage}" width="250px">
+                        <p><span>Ingredients:</span> ${ingredients}</p>
+                        <div class="recipe">
+                        <p><span>instructions:</span>${recipe}</p>
+                        <div><img src="${dishImage}" width="250px"></div>
+                        </div>
                         `);
                         });
                     }

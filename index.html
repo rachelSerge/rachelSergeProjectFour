@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="styles/styles.css
+    "
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-
-</head>
-
-<body>
-
-    <section class="inputSection">
-        <input type="text" id="ingredient" value="chicken" />
-        <label for="ingredient"></label>
-        <button id="submit">submit</button>
-        <button id="reset">reset</button>
-        <div class="warning" id="warning"></div>
-    </section>
-
-    <secion class="content"></secion>
+  <body>
+    <main>
+      <div class="wrapper">
+        <section class="inputSection wrapper">
+          <input type="text" id="ingredient" value="chicken" />
+          <label for="ingredient" class="sr-only">ingredient</label>
+          <button id="submit">submit</button>
+          <button id="reset">reset</button>
+          <div class="warning" id="warning"></div>
+        </section>
+      </div>
+    </main>
+    <div class="wrapper">
+    <secion id="content" class="resultSection"> </secion>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
