@@ -5,22 +5,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
+    <link rel="stylesheet" href="styles/styles.css">
+    <link>
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <!-- we'll find out more readable font -->
 
 </head>
 
 <body>
+    <main class="main wrapper">
+        <h1>Recipe generator</h1>
 
-    <section class="inputSection">
-        <input type="text" id="ingredient" value="chicken" />
-        <label for="ingredient"></label>
-        <button id="submit">submit</button>
-        <button id="reset">reset</button>
-        <div class="warning" id="warning"></div>
-    </section>
+        <section class="inputSection">
+            <input type="text" id="ingredient" value="chicken" placeholder="type you ingredient here">
+            <label for="ingredient"></label>
+            <button id="submit">submit</button>
+            <button id="reset">reset</button>
+            <div class="warning" id="warning"></div>
+        </section>
 
-    <secion class="content"></secion>
+        <secion class="wrapper content"></secion>
 
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

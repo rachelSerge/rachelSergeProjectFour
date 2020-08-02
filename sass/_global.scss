@@ -1,0 +1,32 @@
+// global styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Chilanka', cursive;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+// input section styles
+main {
+    background-image: url(../assets/background.jpg);
+    background-clip: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 200px;
+}
+
+// result section style
+span {
+    font-weight: bold;
+    font-size: 1.3rem;
+}

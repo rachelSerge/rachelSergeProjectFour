@@ -1,0 +1,19 @@
+.inputSection {
+    display: flex;
+    justify-content: center;
+    input,
+    button {
+        font-size: 2rem;
+        font-family: 'Chilanka', cursive;
+        margin: 20px;
+    }
+}
+
+input:focus {
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+::placeholder {
+    color: goldenrod;
+}
