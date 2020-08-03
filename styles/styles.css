@@ -281,10 +281,11 @@ body {
 }
 
 body {
-  background-image: url(https://source.unsplash.com/random/700×1200/?kitchen);
+  background-image: url(https://source.unsplash.com/random/900×900/?kitchen);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  background-attachment: fixed;
 }
 
 span {
