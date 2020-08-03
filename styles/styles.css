@@ -310,16 +310,46 @@ input,
 button {
   font-size: 2rem;
   font-family: 'Chilanka', cursive;
-  margin: 20px;
+  margin: 0.2em;
+  border: solid 1px;
+  border-radius: 0.2em;
+  padding: 0.3em;
+  background-color: lightgoldenrodyellow;
+}
+
+input {
+  border-color: white;
+}
+
+button {
+  border-color: lightgoldenrodyellow;
+}
+
+input:hover {
+  background-color: #bcfdbc;
 }
 
 input:focus {
-  background-color: lightgrey;
-  font-weight: bold;
+  background-color: #8dfa8d;
 }
 
 ::placeholder {
   color: goldenrod;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 0.2em 0.2em 0.2em grey;
+  border: solid 1px;
+  border-color: #8dfa8d;
+  background-color: #8dfa8d;
+}
+
+button:active {
+  transform: scale(0.9);
+  font-weight: bold;
+  transition: all 0.5s;
+  border: solid 1px;
 }
 
 .content {

@@ -20,7 +20,8 @@ recipeApp.getRecipe = () => {
         console.log(recipeApp.ingredient);
         // error catch: if user inputs nothing, throw an error messgae inside of the warning area
         if (recipeApp.ingredient == "") {
-            $("#warning").html("input is empty");
+            // $("#warning").html("input is empty");
+            alert("please make a selection")
         } else {
             // make API call
             recipeApp.url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipeApp.ingredient}`;
