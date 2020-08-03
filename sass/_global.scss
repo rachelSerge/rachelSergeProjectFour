@@ -19,8 +19,9 @@ body {
     // this is just random placeholder image related to food we will chnage it
     background-image: url(https://source.unsplash.com/random/1200×900/?cooking);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     background-attachment: fixed;
 }
 

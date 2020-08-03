@@ -52,3 +52,12 @@ button:active {
     transition: all 0.5s;
     border: solid 1px;
 }
+
+.warning {
+    display: none;
+    background-color: lightgoldenrodyellow;
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    border: solid 2px red;
+}
