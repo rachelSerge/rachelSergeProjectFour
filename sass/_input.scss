@@ -1,12 +1,19 @@
+h1 {
+    text-align: center;
+    margin-top: 2em;
+    font-size: 56px;
+}
+
 .inputSection {
     display: flex;
-    justify-content: center;
-    input,
-    button {
-        font-size: 2rem;
-        font-family: 'Chilanka', cursive;
-        margin: 20px;
-    }
+    justify-content: center
+}
+
+input,
+button {
+    font-size: 2rem;
+    font-family: 'Chilanka', cursive;
+    margin: 20px;
 }
 
 input:focus {

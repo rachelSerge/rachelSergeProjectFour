@@ -84,10 +84,17 @@ recipeApp.getRecipe = () => {
 
                             // display recipes result to the page.
                             $(".content").append(`
+                            <div class="wrapper">
                         <h2>${title}</h2>
-                        <p>Ingredients: ${ingredients}</p>
-                        <h3>${recipe}</h3>
-                        <img src="${dishImage}" width="250px">
+                       
+                        <ul>
+                        Ingredients: <li>${ingredients}</li>
+                        </ul>
+                        <div class="recipeWrapper">
+                        <p>${recipe}</p>
+                        <img src="${dishImage}">
+                        </div>
+                        </div>
                         `);
                         });
                     }
