@@ -42,8 +42,9 @@ p {
     width: calc((100% / 2) - 5em);
     // float: left;
     padding: 0 4em 1em;
-    flex: 1 0 400px;
+    flex: 1 1 350px;
     text-align: justify;
+    justify-content: center;
     line-height: 1.4;
 }
 
@@ -51,5 +52,5 @@ p {
 img {
     width: calc((100% / 2) - 5em);
     height: 100%;
-    flex: 1 0 300px;
+    flex: 1 1 300px;
 }

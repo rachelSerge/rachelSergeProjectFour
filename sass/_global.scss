@@ -20,8 +20,18 @@ body {
     background-image: url(https://source.unsplash.com/random/500×500/?cooking);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2em;
+    // font-size: 26px;
+    font-size: calc(25px + (56 - 25) * ((100vw - 300px) / (1600 - 300)));
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
 // result section style
