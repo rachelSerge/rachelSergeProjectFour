@@ -6,9 +6,10 @@ recipeApp.meals = [];
 recipeApp.getRecipe = () => {
     $("#reset").click(function() {
         recipeApp.localRecipes = [];
-        $("#content").html("");
+        $(".content").html("");
         $("#warning").html("");
         $("input").val("");
+        $(".submit").text("submit");
     });
     // eventListener: once the user clicks the 'submit' button,  if we get more than three results from API, it will generate first three recipes. if less than three, it will generate all the available recipes. if the result is null, throw an erro message
 
@@ -83,8 +84,9 @@ recipeApp.getRecipe = () => {
                             // const recipeId = res.meals[0].idMeal;
                             const ingredients = res.meals[0].ingredientsList;
 
+
                             // display recipes result to the page.
-                            $(".content").append(`
+                            $(".content").prepend(`
                             <div class="wrapper">
                         <h2>${title}</h2>
                        
@@ -97,6 +99,8 @@ recipeApp.getRecipe = () => {
                         </div>
                         </div>
                         `);
+                            $(".submit").text("more")
+
                         });
                     }
                 }
