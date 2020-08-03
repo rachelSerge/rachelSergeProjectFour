@@ -37,7 +37,7 @@ recipeApp.getRecipe = () => {
             }).then((res) => {
                 // check api result & error handling
                 if (res.meals == null) {
-                    $("#warning").html("404 error");
+                    $(".warning").show();
                 }
                 // print results if the input is not empty
                 else {
@@ -106,7 +106,7 @@ recipeApp.getRecipe = () => {
                             // change text on submit button
                             $(".submit").text("more");
                             // erase 404 message from the body
-                            $("#warning").html("");
+                            $(".warning").hide();
                         });
 
                     }
