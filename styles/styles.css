@@ -281,9 +281,10 @@ body {
 }
 
 body {
-  background-image: url(https://source.unsplash.com/random/900×900/?cooking);
+  background-image: url(https://source.unsplash.com/random/500×500/?cooking);
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
   background-attachment: fixed;
 }
 
@@ -382,10 +383,6 @@ li {
 
 li {
   padding: 1em;
-}
-
-li::before {
-  content: "c";
 }
 
 h2 {
