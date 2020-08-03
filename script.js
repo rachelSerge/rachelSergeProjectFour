@@ -43,7 +43,7 @@ recipeApp.getRecipe = () => {
                 else {
                     recipeApp.localRecipes = [];
                     if (res.meals.length >= 3) {
-                        recipeApp.localRecipes = res.meals.slice(0, 3);
+                        recipeApp.localRecipes = res.meals.slice(0, [Math.floor(Math.random() * res.meals.length)]);
                     } else {
                         recipeApp.localRecipes = res.meals;
                     }
@@ -52,6 +52,7 @@ recipeApp.getRecipe = () => {
                     // done
                     // get recipes for each meal id
                     for (let i = 0; i < recipeApp.localRecipes.length; i++) {
+
                         recipeId = recipeApp.localRecipes[i].idMeal;
                         $.ajax({
                             url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
@@ -72,11 +73,11 @@ recipeApp.getRecipe = () => {
                                     }
                                 }
                             });
-                            console.log(res.meals[0].ingredientList);
                             console.log(res.meals[0].idMeal);
                             console.log(res.meals[0].strMeal);
                             console.log(res.meals[0].strIngredient1);
                             console.log(res.meals[0].strMeasure1);
+
 
                             const recipe = res.meals[0].strInstructions;
                             const title = res.meals[0].strMeal;
@@ -86,7 +87,7 @@ recipeApp.getRecipe = () => {
 
 
                             // display recipes result to the page.
-                            $(".content").prepend(`
+                            $(".content").html(`
                             <div class="wrapper">
                         <h2>${title}</h2>
                        
@@ -99,9 +100,12 @@ recipeApp.getRecipe = () => {
                         </div>
                         </div>
                         `);
-                            $(".submit").text("more")
-
+                            // erase 404 message from the body
+                            $("#warning").html("");
                         });
+
+
+
                     }
                 }
             });
