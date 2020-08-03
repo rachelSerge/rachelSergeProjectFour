@@ -72,6 +72,7 @@ recipeApp.getRecipe = () => {
                                     if (res.meals[0][`strIngredient${num}`] && res.meals[0][`strMeasure${num}`]) {
                                         res.meals[0].ingredientsList.push(res.meals[0][`strIngredient${num}`]);
                                         res.meals[0].ingredientsList.push(res.meals[0][`strMeasure${num}`]);
+                                        res.meals[0].ingredientsList.push(" |");
 
                                     }
 
@@ -90,16 +91,17 @@ recipeApp.getRecipe = () => {
                             // display recipes result to the page.
                             $(".content").html(`
                             <div class="wrapper">
-                        <h2>${title}</h2>
-                        <h3>Ingredients:</h3>
-                        <ul>
-                     <li>${ingredients}</li>
-                        </ul>
-                        <div class="recipeWrapper">
-                        <p>${recipe}</p>
-                        <img src="${dishImage}">
-                        </div>
-                        </div>
+                                <h2>${title}</h2>
+                                <h3>Ingredients:</h3>
+                                <ul>
+                                    <li>${ingredients}</li>
+                                </ul>
+                                <h3>Directions</h3>
+                                <div class="recipeWrapper">
+                                    <p>${recipe}</p>
+                                    <img src="${dishImage}">
+                                </div>
+                            </div>
                         `);
                             // change text on submit button
                             $(".submit").text("more");

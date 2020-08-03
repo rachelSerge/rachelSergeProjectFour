@@ -281,10 +281,9 @@ body {
 }
 
 body {
-  background-image: url(https://source.unsplash.com/random/900×900/?kitchen);
+  background-image: url(https://source.unsplash.com/random/900×900/?cooking);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
   background-attachment: fixed;
 }
 
@@ -381,6 +380,14 @@ li {
   margin: 0 auto;
 }
 
+li {
+  padding: 1em;
+}
+
+li::before {
+  content: "c";
+}
+
 h2 {
   text-align: center;
   background-color: #39CCCC;
@@ -392,6 +399,7 @@ p {
   padding: 0 4em 1em;
   flex: 1 0 400px;
   text-align: justify;
+  line-height: 1.4;
 }
 
 img {

@@ -28,6 +28,14 @@ li {
     margin: 0 auto;
 }
 
+li {
+    padding: 1em;
+}
+
+li::before {
+    content: "c"
+}
+
 h2 {
     text-align: center;
     background-color: #39CCCC;
@@ -40,6 +48,7 @@ p {
     padding: 0 4em 1em;
     flex: 1 0 400px;
     text-align: justify;
+    line-height: 1.4;
 }
 
 // image wraps under the recipe section
