@@ -43,7 +43,7 @@ recipeApp.getRecipe = () => {
                 else {
                     recipeApp.localRecipes = [];
                     if (res.meals.length >= 3) {
-                        recipeApp.localRecipes = res.meals.slice(0, 3);
+                        recipeApp.localRecipes = res.meals.slice(0, [Math.floor(Math.random() * res.meals.length)]);
                     } else {
                         recipeApp.localRecipes = res.meals;
                     }
@@ -52,6 +52,7 @@ recipeApp.getRecipe = () => {
                     // done
                     // get recipes for each meal id
                     for (let i = 0; i < recipeApp.localRecipes.length; i++) {
+
                         recipeId = recipeApp.localRecipes[i].idMeal;
                         $.ajax({
                             url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
@@ -62,36 +63,37 @@ recipeApp.getRecipe = () => {
                             },
                         }).then((res) => {
                             // create a new array to hold all ingredients
+
                             res.meals.forEach(function() {
                                 res.meals[0].ingredientsList = [];
+
 
                                 for (num = 1; num <= 20; num++) {
                                     if (res.meals[0][`strIngredient${num}`] && res.meals[0][`strMeasure${num}`]) {
                                         res.meals[0].ingredientsList.push(res.meals[0][`strIngredient${num}`]);
                                         res.meals[0].ingredientsList.push(res.meals[0][`strMeasure${num}`]);
+
                                     }
+
                                 }
+
                             });
-                            console.log(res.meals[0].ingredientList);
                             console.log(res.meals[0].idMeal);
                             console.log(res.meals[0].strMeal);
-                            console.log(res.meals[0].strIngredient1);
-                            console.log(res.meals[0].strMeasure1);
 
                             const recipe = res.meals[0].strInstructions;
                             const title = res.meals[0].strMeal;
                             const dishImage = res.meals[0].strMealThumb;
                             // const recipeId = res.meals[0].idMeal;
-                            const ingredients = res.meals[0].ingredientsList;
-
+                            const ingredients = res.meals[0].ingredientsList.join(" ");
 
                             // display recipes result to the page.
-                            $(".content").prepend(`
+                            $(".content").html(`
                             <div class="wrapper">
                         <h2>${title}</h2>
-                       
+                        <h3>Ingredients:</h3>
                         <ul>
-                        Ingredients: <li>${ingredients}</li>
+                     <li>${ingredients}</li>
                         </ul>
                         <div class="recipeWrapper">
                         <p>${recipe}</p>
@@ -99,9 +101,12 @@ recipeApp.getRecipe = () => {
                         </div>
                         </div>
                         `);
-                            $(".submit").text("more")
-
+                            // change text on submit button
+                            $(".submit").text("more");
+                            // erase 404 message from the body
+                            $("#warning").html("");
                         });
+
                     }
                 }
             });

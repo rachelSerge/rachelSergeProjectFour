@@ -286,7 +286,6 @@ body {
   background-size: cover;
   height: 100%;
   background-attachment: fixed;
-  background-blend-mode: lighten;
 }
 
 span {
