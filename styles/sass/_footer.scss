@@ -1,0 +1,20 @@
+main,
+.section {
+    position: relative;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    padding: 0.5em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: whitesmoke;
+}
+
+footer p {
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+}

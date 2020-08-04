@@ -1,6 +1,10 @@
 1. // Create app namespace to hold all methods
 const recipeApp = {};
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46a9d37e655c0995146512aac736e3e250d2c8c2
 2. app.collectInfo = function() {};
 // Collect user input 
 // place input forms with placeholder text (hint for users what search query needed)
@@ -39,4 +43,8 @@ app.init = function() {};
 
 $(function() {
 	recipeApp.init();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 46a9d37e655c0995146512aac736e3e250d2c8c2

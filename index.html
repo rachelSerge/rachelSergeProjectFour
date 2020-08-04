@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="styles/styles.css
-    "
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link>
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <!-- we'll find out more readable font -->
 
-  <body>
-    <main>
-      <div class="wrapper">
-        <section class="inputSection wrapper">
-          <input type="text" id="ingredient" value="chicken" />
-          <label for="ingredient" class="sr-only">ingredient</label>
-          <button id="submit">submit</button>
-          <button id="reset">reset</button>
-          <div class="warning" id="warning"></div>
+</head>
+
+<body>
+    <main class="wrapper">
+        <h1>Recipe generator</h1>
+
+        <section class="inputSection">
+            <input type="text" id="ingredient" value="chicken" placeholder="type primary ingredient here">
+            <label for="ingredient"></label>
+            <button id="submit" class="submit">submit</button>
+            <button id="reset">reset</button>
         </section>
-      </div>
+        <div class="warning" id="warning">
+            <span>We don't have such recipe yet, please try another option</span>
+        </div>
+
+
+        <secion class="content">
+
+        </secion>
     </main>
-    <div class="wrapper">
-    <secion id="content" class="resultSection"> </secion>
-    </div>
+
+
+    <footer>
+        <!-- Footer -->
+
+        <p class="trademark ">
+            2020 &copy rachelSerge created at Juno College of Technology
+        </p>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

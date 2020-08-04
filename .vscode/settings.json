@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
  "liveSassCompile.settings.formats": [
   {
    "format": "expanded",
@@ -16,3 +17,22 @@
   "last 2 versions"
  ]
 }
+=======
+    "liveSassCompile.settings.formats": [
+      {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "/styles"
+      }
+    ],
+    "liveSassCompile.settings.excludeList": [
+      "**/node_modules/**",
+      ".vscode/**"
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.autoprefix": [
+      "> 1%",
+      "last 2 versions"
+    ]
+  }
+>>>>>>> 46a9d37e655c0995146512aac736e3e250d2c8c2

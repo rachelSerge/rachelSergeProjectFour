@@ -1,0 +1,43 @@
+// global styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Chilanka', cursive;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+body {
+    // this is just random placeholder image related to food we will chnage it
+    background-image: url(https://source.unsplash.com/random/1200×900/?cooking);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2em;
+    // font-size: 26px;
+    font-size: calc(25px + (56 - 25) * ((100vw - 300px) / (1600 - 300)));
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 2px 2px black;  
+    
+}
+
+// result section style
+span {
+    font-weight: bold;
+    font-size: 1.3rem;
+}

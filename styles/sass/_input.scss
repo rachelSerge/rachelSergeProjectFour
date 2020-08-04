@@ -1,0 +1,63 @@
+.inputSection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input,
+button {
+    font-size: 2rem;
+    font-family: 'Chilanka', cursive;
+    margin: 0.2em;
+    border: solid 1px;
+    border-radius: 0.2em;
+    padding: 0.3em;
+    background-color: lightgoldenrodyellow;
+}
+
+input {
+    border-color: white;
+    width: 50%;
+}
+
+button {
+    border-color: lightgoldenrodyellow;
+}
+
+input:hover {
+    background-color: rgb(188, 253, 188);
+}
+
+input:focus {
+    background-color: rgb(141, 250, 141);
+    // font-weight: bold;
+}
+
+::placeholder {
+    color: goldenrod;
+}
+
+button:hover,
+button:focus {
+    box-shadow: 0.2em 0.2em 0.2em grey;
+    border: solid 1px;
+    border-color: rgb(141, 250, 141);
+    background-color: rgb(141, 250, 141);
+}
+
+button:active {
+    // display: inline-block;
+    transform: scale(0.9);
+    font-weight: bold;
+    transition: all 0.5s;
+    border: solid 1px;
+}
+
+.warning {
+    display: none;
+    background-color: lightgoldenrodyellow;
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    border: solid 2px red;
+}
