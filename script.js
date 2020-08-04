@@ -7,24 +7,20 @@ recipeApp.getRecipe = () => {
   $("#reset").click(function () {
     recipeApp.localRecipes = [];
     $(".content").html("");
-    $("#warning").html("");
+    $("#warning").hide();
     $("input").val("");
     $(".submit").text("submit");
   });
-  // eventListener: once the user clicks the 'submit' button,  if we get more than three results from API, it will generate first three recipes. if less than three, it will generate all the available recipes. if the result is null, throw an erro message
-
-  // this method is better than getting three random recipes from API, we can manipulate the array locally, which is more efficient
+  
+  // eventListener: every time user clicks the submit button, it will generate one random recipe based on the user Input
 
   $("#submit").click(function () {
-    // note: we have to change all the inputs to lowercase in case of error(if user inputs are uppercase)
     recipeApp.ingredient = $("input").val();
-    console.log(recipeApp.ingredient);
     // error catch: if user inputs nothing, throw an error messgae inside of the warning area
     if (recipeApp.ingredient == "") {
-      // $("#warning").html("input is empty");
       alert("please make a selection");
     } else {
-      // make API call
+      // make API call based on user input
       recipeApp.url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipeApp.ingredient}`;
 
       $.ajax({
@@ -35,6 +31,7 @@ recipeApp.getRecipe = () => {
           per_page: "3",
         },
       }).then((res) => {
+       // shuffle the items inside of res.meals to make sure user get different recipe each time
         function shuffle(newArray) {
           let num1 = newArray.length;
           let num2 = 0;
@@ -50,21 +47,18 @@ recipeApp.getRecipe = () => {
         // check api result & error handling
 
         if (res.meals == null) {
-          $(".warning").show("ingredient doesn't exist");
+          $(".warning").show();
         }
         // print results if the input is not empty
         else if (res.meals != null) {
           let randomNum = shuffle(res.meals);
-          console.log(randomNum);
-          recipeApp.localRecipes = [];
-          recipeApp.localRecipes = res.meals.slice(0, 3);
-        }
-        console.log(recipeApp.localRecipes);
-
-        // done
+          // console.log(randomNum);          
+          recipeApp.localRecipes = res.meals[0];
+          
+        }        
+        
         // get recipes for each meal id
-        for (let i = 0; i < recipeApp.localRecipes.length; i++) {
-          recipeId = recipeApp.localRecipes[i].idMeal;
+          recipeId = recipeApp.localRecipes.idMeal;
           $.ajax({
             url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
             method: "GET",
@@ -93,8 +87,7 @@ recipeApp.getRecipe = () => {
                 }
               }
             });
-            // console.log(res.meals[0].idMeal);
-            // console.log(res.meals[0].strMeal);
+     
 
             const recipe = res.meals[0].strInstructions;
             const title = res.meals[0].strMeal;
@@ -122,7 +115,7 @@ recipeApp.getRecipe = () => {
             // erase 404 message from the body
             $(".warning").hide();
           });
-        }
+        // }
       });
     }
   });
