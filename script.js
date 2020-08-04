@@ -69,8 +69,8 @@ recipeApp.getRecipe = () => {
           }).then((res) => {
             // create a new array to hold all ingredients
 
-            res.meals.forEach(function () {
-              res.meals[0].ingredientsList = [];
+                        res.meals.forEach(function() {
+                            res.meals[0].ingredientsList = [];
 
               for (num = 1; num <= 20; num++) {
                 if (
@@ -89,14 +89,14 @@ recipeApp.getRecipe = () => {
             });
      
 
-            const recipe = res.meals[0].strInstructions;
-            const title = res.meals[0].strMeal;
-            const dishImage = res.meals[0].strMealThumb;
-            // const recipeId = res.meals[0].idMeal;
-            const ingredients = res.meals[0].ingredientsList.join(" ");
+                        const recipe = res.meals[0].strInstructions;
+                        const title = res.meals[0].strMeal;
+                        const dishImage = res.meals[0].strMealThumb;
+                        // const recipeId = res.meals[0].idMeal;
+                        const ingredients = res.meals[0].ingredientsList.join(" ");
 
-            // display recipes result to the page.
-            $(".content").html(`
+                        // display recipes result to the page.
+                        $(".content").html(`
                             <div class="wrapper">
                                 <h2>${title}</h2>
                                 <h3>Ingredients:</h3>
@@ -121,6 +121,6 @@ recipeApp.getRecipe = () => {
   });
 };
 
-$(function () {
-  recipeApp.getRecipe();
+$(function() {
+    recipeApp.getRecipe();
 });
