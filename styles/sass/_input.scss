@@ -24,9 +24,12 @@ button {
     border-color: rgb(0, 0, 0);
     padding: 1em auto;
     text-align: center;
-    flex: 1 1 50px;
+}
+
+.nameSection button {
     max-width: 5em;
     max-height: 2.5em;
+    flex: 1 1 50px;
 }
 
 input:hover {
@@ -75,13 +78,13 @@ button:active {
     margin: 0 auto;
 }
 
-h3 {
+.nameSection h3 {
     font-family: 'Chilanka', cursive;
     color: white;
-    margin: 2em 0 0.5em;
+    margin: 1em 0 0.5em;
     font-size: 2em;
     font-weight: normal;
     width: 100%;
     text-align: center;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 3px 3px 3px black;
 }
