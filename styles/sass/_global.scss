@@ -16,7 +16,7 @@ body {
 }
 
 body {
-    // this is just random placeholder image related to food 
+    // this is just random placeholder image related to food
     background-image: url(https://source.unsplash.com/random/1200×900/?cooking);
     background-repeat: no-repeat;
     background-position: center;
@@ -32,8 +32,7 @@ h1 {
     font-size: calc(25px + (56 - 25) * ((100vw - 300px) / (1600 - 300)));
     text-transform: uppercase;
     color: white;
-    text-shadow: 2px 2px 2px black;  
-    
+    text-shadow: 2px 2px 2px black;
 }
 
 // result section style
