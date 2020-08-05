@@ -100,7 +100,6 @@ recipeApp.getRecipe = () => {
                                 </div>
                             </div>
                         `);
-                    console.log(title)
                         // change text on submit button
                     $(".submit").text("more");
                 });
