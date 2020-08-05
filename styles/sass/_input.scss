@@ -17,7 +17,7 @@ button {
 
 input {
     border-color: white;
-    width: 65%;
+    width: 50%;
 }
 
 button {
@@ -30,12 +30,10 @@ input:hover {
 
 input:focus {
     background-color: rgb(141, 250, 141);
-    // font-weight: bold;
 }
 
 ::placeholder {
     color: goldenrod;
-    
 }
 
 button:hover,
@@ -47,7 +45,6 @@ button:focus {
 }
 
 button:active {
-    // display: inline-block;
     transform: scale(0.9);
     font-weight: bold;
     transition: all 0.5s;
@@ -61,4 +58,5 @@ button:active {
     margin: 1em auto;
     padding: 1em;
     border: solid 2px red;
+    text-align: center;
 }
