@@ -123,7 +123,7 @@ recipeApp.getRecipe = () => {
                                 <h3>Directions</h3>
                                 <div class="recipeWrapper">
                                     <p>${recipe}</p>
-                                    <img src="${dishImage}">
+                                    <img src="${dishImage}" alt="picture of ${title}">
                                 </div>
                             </div>
                         `);
