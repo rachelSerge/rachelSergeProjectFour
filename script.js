@@ -31,6 +31,7 @@ recipeApp.getRecipe = () => {
           per_page: "3",
         },
       }).then((res) => {
+       console.log(res);
        // shuffle the items inside of res.meals to make sure user get different recipe each time
         function shuffle(newArray) {
           let num1 = newArray.length;
@@ -51,7 +52,7 @@ recipeApp.getRecipe = () => {
         }
         // print results if the input is not empty
         else if (res.meals != null) {
-          let randomNum = shuffle(res.meals);
+          shuffle(res.meals);
           // console.log(randomNum);          
           recipeApp.localRecipes = res.meals[0];
           
