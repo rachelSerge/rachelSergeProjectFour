@@ -457,7 +457,7 @@ h4 {
   padding: 0 2em 3em;
 }
 
-.accordion,
+h2,
 h3,
 li,
 ul,
@@ -468,6 +468,11 @@ li {
 
 li {
   padding: 0 1em;
+}
+
+h2 {
+  text-align: center;
+  background-color: #39CCCC;
 }
 
 p {
@@ -513,8 +518,8 @@ img {
   }
   h2 {
     width: 100%;
-    margin: 0;
-    padding: 1em 0;
+    margin: 0 auto;
+    padding: 1em;
   }
 }
 
