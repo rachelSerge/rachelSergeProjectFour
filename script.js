@@ -86,9 +86,10 @@ recipeApp.getRecipe = () => {
                     const ingredients = res.meals[0].ingredientsList.join(" ");
 
                     // display recipes result to the page.
+                    // assign id of dynamic content to target for futher duplicate removal
                     $(".content").prepend(`
-                            <div class="wrapper">
-                                <h2>${title}</h2>
+                            <div class="wrapper" id="${title}">
+                                <h2 class>${title}</h2>
                                 <h3>Ingredients:</h3>
                                 <ul>
                                     <li>${ingredients}</li>
@@ -100,8 +101,20 @@ recipeApp.getRecipe = () => {
                                 </div>
                             </div>
                         `);
+                    console.log(title)
                         // change text on submit button
                     $(".submit").text("more");
+
+                    // removing duplicate recipes from the page
+                    var duplicateChk = {};
+                    $('div[id]').each(function() {
+                        if (duplicateChk.hasOwnProperty(this.id)) {
+                            $(this).remove();
+                        } else {
+                            duplicateChk[this.id] = 'true';
+                        }
+                    });
+
                 });
             });
         }
