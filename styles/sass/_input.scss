@@ -21,7 +21,12 @@ input {
 }
 
 button {
-    border-color: lightgoldenrodyellow;
+    border-color: rgb(0, 0, 0);
+    padding: 1em auto;
+    text-align: center;
+    flex: 1 1 50px;
+    max-width: 5em;
+    max-height: 2.5em;
 }
 
 input:hover {
@@ -60,8 +65,23 @@ button:active {
     border: solid 2px red;
     text-align: center;
 }
-.nameSection{
+
+.nameSection {
     display: flex;
     justify-content: center;
-    
+    flex-wrap: wrap;
+    border: 0;
+    width: 70%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Chilanka', cursive;
+    color: white;
+    margin: 2em 0 0.5em;
+    font-size: 2em;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
 }
