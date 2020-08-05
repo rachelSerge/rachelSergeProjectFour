@@ -7,11 +7,29 @@ recipeApp.getRecipe = () => {
   $("#reset").click(function () {
     recipeApp.localRecipes = [];
     $(".content").html("");
-    $("#warning").hide();
     $("input").val("");
     $(".submit").text("submit");
   });
+  // get suggestion cards
+
+  $("#one").on("click", function () {
+    let name = $('#one').html();
+    $("input").val(`${name}`);
+  });
+ $("#two").on("click", function () {
+  let name = $('#two').html();
+  $("input").val(`${name}`);
+ });
+ $("#three").on("click", function () {
+  let name = $('#three').html();
+  $("input").val(`${name}`);
+ });
+ $("#four").on("click", function () {
+  let name = $('#four').html();
+  $("input").val(`${name}`);
+ });
   
+
   // eventListener: every time user clicks the submit button, it will generate one random recipe based on the user Input
 
   $("#submit").click(function () {
@@ -31,8 +49,7 @@ recipeApp.getRecipe = () => {
           per_page: "3",
         },
       }).then((res) => {
-       console.log(res);
-       // shuffle the items inside of res.meals to make sure user get different recipe each time
+        // shuffle the items inside of res.meals to make sure user get different recipe each time
         function shuffle(newArray) {
           let num1 = newArray.length;
           let num2 = 0;
@@ -52,54 +69,53 @@ recipeApp.getRecipe = () => {
         }
         // print results if the input is not empty
         else if (res.meals != null) {
-          shuffle(res.meals);
-          // console.log(randomNum);          
+          let randomNum = shuffle(res.meals);
           recipeApp.localRecipes = res.meals[0];
-          
-        }        
-        
+          // erase 404 message from the body
+          $(".warning").hide();
+        }
+
         // get recipes for each meal id
-          recipeId = recipeApp.localRecipes.idMeal;
-          $.ajax({
-            url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
-            method: "GET",
-            datatype: "json",
-            data: {
-              per_page: "3",
-            },
-          }).then((res) => {
-            // create a new array to hold all ingredients
+        recipeId = recipeApp.localRecipes.idMeal;
+        $.ajax({
+          url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
+          method: "GET",
+          datatype: "json",
+          data: {
+            per_page: "3",
+          },
+        }).then((res) => {
+          // create a new array to hold all ingredients
 
-                        res.meals.forEach(function() {
-                            res.meals[0].ingredientsList = [];
+          res.meals.forEach(function () {
+            res.meals[0].ingredientsList = [];
 
-              for (num = 1; num <= 20; num++) {
-                if (
-                  res.meals[0][`strIngredient${num}`] &&
+            for (num = 1; num <= 20; num++) {
+              if (
+                res.meals[0][`strIngredient${num}`] &&
+                res.meals[0][`strMeasure${num}`]
+              ) {
+                res.meals[0].ingredientsList.push(
+                  res.meals[0][`strIngredient${num}`]
+                );
+                res.meals[0].ingredientsList.push(
                   res.meals[0][`strMeasure${num}`]
-                ) {
-                  res.meals[0].ingredientsList.push(
-                    res.meals[0][`strIngredient${num}`]
-                  );
-                  res.meals[0].ingredientsList.push(
-                    res.meals[0][`strMeasure${num}`]
-                  );
-                  res.meals[0].ingredientsList.push(" |");
-                }
+                );
+                res.meals[0].ingredientsList.push(" |");
               }
-            });
-     
+            }
+          });
 
-                        const recipe = res.meals[0].strInstructions;
-                        const title = res.meals[0].strMeal;
-                        const dishImage = res.meals[0].strMealThumb;
-                        // const recipeId = res.meals[0].idMeal;
-                        const ingredients = res.meals[0].ingredientsList.join(" ");
+          const recipe = res.meals[0].strInstructions;
+          const title = res.meals[0].strMeal;
+          const dishImage = res.meals[0].strMealThumb;
+          const ingredients = res.meals[0].ingredientsList.join(" ");
 
-                        // display recipes result to the page.
-                        $(".content").html(`
-                            <div class="wrapper">
-                                <h2>${title}</h2>
+          // display recipes result to the page.
+          // assign id of dynamic content to target for futher duplicate removal
+          $(".content").prepend(`
+                            <div class="wrapper" id="${title}">
+                                <h2 class>${title}</h2>
                                 <h3>Ingredients:</h3>
                                 <ul>
                                     <li>${ingredients}</li>
@@ -111,17 +127,25 @@ recipeApp.getRecipe = () => {
                                 </div>
                             </div>
                         `);
-            // change text on submit button
-            $(".submit").text("more");
-            // erase 404 message from the body
-            $(".warning").hide();
+          console.log(title);
+          // change text on submit button
+          $(".submit").text("more");
+
+          // removing duplicate recipes from the page
+          var duplicateChk = {};
+          $("div[id]").each(function () {
+            if (duplicateChk.hasOwnProperty(this.id)) {
+              $(this).remove();
+            } else {
+              duplicateChk[this.id] = "true";
+            }
           });
-        // }
+        });
       });
     }
   });
 };
 
-$(function() {
-    recipeApp.getRecipe();
+$(function () {
+  recipeApp.getRecipe();
 });

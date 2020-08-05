@@ -335,7 +335,7 @@ button {
 
 input {
   border-color: white;
-  width: 65%;
+  width: 50%;
 }
 
 button {
@@ -391,6 +391,16 @@ button:active {
   margin: 1em auto;
   padding: 1em;
   border: solid 2px red;
+  text-align: center;
+}
+
+.nameSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .content {
@@ -480,35 +490,31 @@ img {
   button {
     font-size: 25px;
   }
+  h2 {
+    width: 100%;
+    margin: 0;
+    padding: 1em 0;
+  }
 }
 
 @media (max-width: 700px) {
-  .wrapper {
+  .wrapper,
+  li {
     padding: 0;
     width: 95%;
+    margin: 0 auto;
   }
   .wrapper p {
     padding: 0;
     width: 100%;
   }
+  h3 {
+    padding: 1em;
+    width: 100%;
+    margin: 0 auto;
+  }
   input {
     width: 60%;
-    text-align: center;
-  }
-  ::-webkit-input-placeholder {
-    font-size: 20px;
-  }
-  :-ms-input-placeholder {
-    font-size: 20px;
-  }
-  ::-ms-input-placeholder {
-    font-size: 20px;
-  }
-  ::placeholder {
-    font-size: 20px;
-  }
-  button {
-    font-size: 20px;
   }
 }
 
@@ -517,21 +523,8 @@ img {
     width: 100%;
     text-align: center;
   }
-  ::-webkit-input-placeholder {
-    font-size: 20px;
-  }
-  :-ms-input-placeholder {
-    font-size: 20px;
-  }
-  ::-ms-input-placeholder {
-    font-size: 20px;
-  }
-  ::placeholder {
-    font-size: 20px;
-  }
   button {
     width: 30%;
-    font-size: 20px;
   }
 }
 
