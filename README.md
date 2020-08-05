@@ -1,6 +1,6 @@
 # Project 4 (paired API-powered application with jQuery)
 
-## Due date
+### https://rachelserge.github.io/rachelSergeProjectFour/index.html
 
 Project due dates can be found [here](https://github.com/HackerYou/bootcamp-notes/blob/master/stuff-you-need-to-know/important-dates.md).
 
